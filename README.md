@@ -1,6 +1,4 @@
-# C++_every_day
-As mentioned and required by father Xuan. @Yixuan Xu
+# Algo_every_day
+Previous c++ every day project has been deprecated. Now this project is changed to record all my efforts on learning algorithm. Old project has been put in the branch called "old".
 
-Hopefully can upload some c++ code everyday.
-
-One C++ a day, keep healthy life away :D
+Inspired by father Xuan. @promer94
