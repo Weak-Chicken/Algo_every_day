@@ -1,7 +1,6 @@
 /*
 Solution from rao0501 on https://leetcode.com/problems/container-with-most-water/discuss/226610/Simple-solution-O(n)-99.61-faster-than-all-submissions
 */
-
 class Solution 
 {
 public:
