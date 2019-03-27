@@ -7,7 +7,7 @@ private:
         {
             res.push_back(combination);
         }
-        if (left > 0)
+        if (left > 0 && right >= left)
         {
             combination.push_back('(');
             backtracking(left - 1, right, combination, res);
