@@ -1,35 +1,20 @@
-#include "leetcode_datatype_support.h"
+#include "debug_assistant.h"
 
 using namespace std;
 
 class Solution 
 {
+private:
+    int max_depth(TreeNode* p)
+    {
+        if (p == NULL) return 0;
+        return max(max_depth(p->left), max_depth(p->right)) + 1;
+    }
 public:
     bool isBalanced(TreeNode* root) 
     {
         if (root == NULL) return true;
-        vector<TreeNode *> left; vector<TreeNode *> right;
-        vector<TreeNode *> next_left = {root->left}; vector<TreeNode *> next_right = {root->right}; bool my_null = false;
-        while (!next_left.empty() || !next_right.empty())
-        {
-            left = next_left; right = next_right;
-            next_left.clear(); next_right.clear(); 
-            for (int i = 0; i < left.size(); i++)
-            {
-                if (left[i]->left != NULL) next_left.push_back(left[i]->left);
-                if (left[i]->right != NULL) next_left.push_back(left[i]->right);
-            }
-            for (int i = 0; i < right.size(); i++)
-            {
-                if (right[i]->left != NULL) next_right.push_back(right[i]->left);
-                if (right[i]->right != NULL) next_right.push_back(right[i]->right);
-            }
-            if (next_left.empty() || next_right.empty())
-            {
-                if (my_null) return false;
-                else my_null = true;
-            }
-        }
+        if (abs(max_depth(root->left) - max_depth(root->right)) > 1) return false;
         return true;
     }
 };

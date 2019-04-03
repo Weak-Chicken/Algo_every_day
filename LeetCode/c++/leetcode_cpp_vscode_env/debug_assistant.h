@@ -7,6 +7,8 @@ better to put them into .h and .cpp file separatly if possible later.
 #ifndef __DEBUG_ASSISTANT_H__
 #define __DEBUG_ASSISTANT_H__
 
+#include "leetcode_datatype_support.h"
+
 using namespace std;
 
 void debug_assistant_include_tester()
@@ -38,6 +40,26 @@ void print_int_vector(vector<int> nums)
         if (i != nums.size() - 1) cout << ",";
     }
     cout << "]" << endl;
+}
+
+stringstream treenode_vector_to_stringstream(vector<TreeNode*> p)
+{
+    stringstream ss;
+    for (int i = 0; i < p.size(); i++)
+        ss << treeNodeToString(p[i]) << endl;
+    ss << endl;
+    return ss;
+}
+
+string print_treenode_vector(vector<TreeNode*> p)
+{
+    stringstream ss = treenode_vector_to_stringstream(p);
+    string temp;
+    while (ss >> temp)
+    {
+        cout << temp;
+    }
+    return "***output finish***";
 }
 
 #endif

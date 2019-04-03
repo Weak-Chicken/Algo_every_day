@@ -3,6 +3,8 @@
         "cassert": "cpp",
         "iostream": "cpp",
         "new": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "ostream": "cpp",
+        "iosfwd": "cpp"
     }
 }

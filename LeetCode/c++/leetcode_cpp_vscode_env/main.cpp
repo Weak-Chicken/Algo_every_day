@@ -5,7 +5,6 @@
 #include <sstream>
 #include <queue>
 #include "solution.h" 
-#include "debug_assistant.h"
 
 using namespace std;
 
@@ -15,7 +14,7 @@ int target = 9;
 string a = "11";
 string b = "1";
 
-TreeNode* root = stringToTreeNode("[3,9,20,null,null,15,7]");
+TreeNode* root = stringToTreeNode("[1,2,2,3,3,null,null,4,4]");
 
 //===================================MAIN===================================
 int main() 
