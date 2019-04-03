@@ -3,6 +3,7 @@
 #include <vector>
 #include <algorithm>
 #include <sstream>
+#include <queue>
 #include "solution.h" 
 #include "debug_assistant.h"
 
@@ -14,14 +15,17 @@ int target = 9;
 string a = "11";
 string b = "1";
 
+TreeNode* root = stringToTreeNode("[3,9,20,null,null,15,7]");
+
 //===================================MAIN===================================
 int main() 
 {
     // debug_assistant_include_tester();
     Solution my_sol;
 
-    string res = my_sol.addBinary(a, b);
-    cout << res;
+    cout << boolToString(my_sol.isBalanced(root));
+    // string res = my_sol.test();
+    // cout << res;
     
     return 0;
 }

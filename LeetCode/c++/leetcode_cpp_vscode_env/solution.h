@@ -1,29 +1,35 @@
+#include "leetcode_datatype_support.h"
+
 using namespace std;
 
 class Solution 
 {
-private:
-    int binary_add(char a, char b)
-    {
-        if (a == '0' && b == '0') return 0;
-        else if ((a == '1' && b == '0') || (a == '0' && b == '1')) return 1;
-        else if (a == '1' && b == '1') return 2;
-        return -1;
-    }
 public:
-    string addBinary(string a, string b) 
+    bool isBalanced(TreeNode* root) 
     {
-        if (a.size() < b.size()) return addBinary(b, a);
-        int c = 0; string res = "";
-        while (b.size() < a.size()) b.insert(0, "0");
-        for (int i = a.size() - 1; i >= 0; i--)
+        if (root == NULL) return true;
+        vector<TreeNode *> left; vector<TreeNode *> right;
+        vector<TreeNode *> next_left = {root->left}; vector<TreeNode *> next_right = {root->right}; bool my_null = false;
+        while (!next_left.empty() || !next_right.empty())
         {
-            if (binary_add(a[i], b[i]) + c == 3) {c = 1; res.insert(0, "1");}
-            else if (binary_add(a[i], b[i]) + c == 2) {c = 1; res.insert(0, "0");}
-            else if (binary_add(a[i], b[i]) + c == 1) {c = 0; res.insert(0, "1");}
-            else if (binary_add(a[i], b[i]) + c == 0) {c = 0; res.insert(0, "0");}
+            left = next_left; right = next_right;
+            next_left.clear(); next_right.clear(); 
+            for (int i = 0; i < left.size(); i++)
+            {
+                if (left[i]->left != NULL) next_left.push_back(left[i]->left);
+                if (left[i]->right != NULL) next_left.push_back(left[i]->right);
+            }
+            for (int i = 0; i < right.size(); i++)
+            {
+                if (right[i]->left != NULL) next_right.push_back(right[i]->left);
+                if (right[i]->right != NULL) next_right.push_back(right[i]->right);
+            }
+            if (next_left.empty() || next_right.empty())
+            {
+                if (my_null) return false;
+                else my_null = true;
+            }
         }
-        if (c == 1) res.insert(0, "1");
-        return res;
+        return true;
     }
 };
