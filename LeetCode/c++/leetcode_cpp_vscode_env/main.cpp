@@ -16,13 +16,21 @@ string b = "1";
 
 TreeNode* root = stringToTreeNode("[1,2,2,3,3,null,null,4,4]");
 
+vector<vector<int>> triangle = 
+{
+    {2},
+    {3,4},
+    {6,5,7},
+    {4,1,8,3}
+};
+
 //===================================MAIN===================================
 int main() 
 {
     // debug_assistant_include_tester();
     Solution my_sol;
 
-    cout << boolToString(my_sol.isBalanced(root));
+    cout << my_sol.minimumTotal(triangle);
     // string res = my_sol.test();
     // cout << res;
     
