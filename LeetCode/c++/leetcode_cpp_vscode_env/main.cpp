@@ -13,6 +13,8 @@ vector<int> nums = {2, 7, 11, 15};
 int target = 9;
 string a = "11";
 string b = "1";
+// string s = "abcabcbb";
+string s = "dvdf";
 
 TreeNode* root = stringToTreeNode("[1,2,2,3,3,null,null,4,4]");
 
@@ -30,7 +32,7 @@ int main()
     // debug_assistant_include_tester();
     Solution my_sol;
 
-    cout << my_sol.minimumTotal(triangle);
+    cout << my_sol.lengthOfLongestSubstring(s);
     // string res = my_sol.test();
     // cout << res;
     
