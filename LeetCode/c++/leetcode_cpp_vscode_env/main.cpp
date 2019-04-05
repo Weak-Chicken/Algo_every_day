@@ -14,7 +14,7 @@ int target = 9;
 string a = "11";
 string b = "1";
 // string s = "abcabcbb";
-string s = "dvdf";
+string s = "0P";
 
 TreeNode* root = stringToTreeNode("[1,2,2,3,3,null,null,4,4]");
 
@@ -32,7 +32,7 @@ int main()
     // debug_assistant_include_tester();
     Solution my_sol;
 
-    cout << my_sol.lengthOfLongestSubstring(s);
+    cout << my_sol.isPalindrome(s);
     // string res = my_sol.test();
     // cout << res;
     

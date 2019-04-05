@@ -1,7 +1,3 @@
-#include "debug_assistant.h"
-
-using namespace std;
-
 class Solution 
 {
 public:
@@ -13,7 +9,8 @@ public:
         int l = 0, r = processed.size() - 1;
         while (l < r)
         {
-            cout << processed[l] << " \ " << processed[r] << endl;
+            if ((processed[l] >= '0' && processed[l] <= '9') || (processed[r] >= '0' && processed[r] <= '9'))
+                if (processed[l] != processed[r]) return false;
             if (!(processed[l] == processed[r] || processed[l] == processed[r] + 32 || processed[l] == processed[r] - 32)) return false;
             l++; r--;
         }
