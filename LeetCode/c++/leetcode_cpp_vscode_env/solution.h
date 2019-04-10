@@ -5,26 +5,23 @@ using namespace std;
 class Solution 
 {
 public:
-    int numUniqueEmails(vector<string>& emails) 
+    int myAtoi(string str) 
     {
-        vector<string> res;
-        for (int i = 0; i < emails.size(); i++)
+        long res = 0, i = 0; bool neg = false;
+        if (str.empty()) return res;
+        while (i < str.size() && str[i] == ' ') i++;
+        if (str[i] == '-') {neg = true; i++;};
+        if (str[i] == '+') {if (neg) return 0; else i++;}
+        while (i < str.size() && str[i] >= '0' && str[i] <= '9')
         {
-            size_t found = emails[i].find('+'); size_t at = emails[i].find('@');
-            if (found != std::string::npos) emails[i] = emails[i].substr(0, found) + emails[i].substr(at);
-            found = emails[i].find('.');
-            while (found != std::string::npos && found < at) 
-            {
-                emails[i].replace(found, 1, "");
-                found = emails[i].find('.');
-                at = emails[i].find('@');
-                cout << "email | found | at | " << emails[i] << " | " << found << " | "  << at << endl; 
-            }
-            int j = 0;
-            while (j < res.size()) {if (res[j] == emails[i]) break; j++;}
-            if (j == res.size()) res.push_back(emails[i]);
+            res *= 10;
+            res += str[i] - 48;
+            i++;
+            if (res > 2147483649) break;
         }
-        for (int i = 0; i < res.size(); i++) cout << res[i] << endl;
-        return (int) (res.size());
+        res = (neg) ? -res : res;
+        if (res > 2147483647) res = 2147483647;
+        else if (res < -2147483648) res = -2147483648;
+        return res;
     }
 };
