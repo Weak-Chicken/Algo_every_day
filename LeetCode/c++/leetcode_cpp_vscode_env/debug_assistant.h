@@ -62,4 +62,27 @@ string print_treenode_vector(vector<TreeNode*> p)
     return "***output finish***";
 }
 
+void print_int_vector_vector(vector<vector<int>> nums)
+{
+    for (int i = 0; i < nums.size(); i++)
+    {
+        print_int_vector(nums[i]);
+    }
+}
+
+string bool_vector_to_string(vector<bool> nums)
+{
+    stringstream ss;
+    ss << "[";
+    for (int i = 0; i < nums.size(); i++)
+    {
+        ss << nums[i] ;
+        if (i != nums.size() - 1) ss << ",";
+    }
+    ss << "]";
+    string res;
+    ss >> res;
+    return res;
+}
+
 #endif

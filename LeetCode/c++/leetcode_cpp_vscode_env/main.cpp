@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <sstream>
 #include <queue>
+#include <cstring>
 #include "solution.h" 
 
 using namespace std;
@@ -18,12 +19,11 @@ string str = "-+1";
 
 TreeNode* root = stringToTreeNode("[1,2,2,3,3,null,null,4,4]");
 
-vector<vector<int>> triangle = 
+vector<vector<int>> matrix = 
 {
-    {2},
-    {3,4},
-    {6,5,7},
-    {4,1,8,3}
+    {1,1,1},
+    {1,0,1},
+    {1,1,1}
 };
 
 vector<string> emails = 
@@ -38,7 +38,10 @@ int main()
     // debug_assistant_include_tester();
     Solution my_sol;
 
-    cout << my_sol.divide(divend, divsor);
+    my_sol.setZeroes(matrix);
+    print_int_vector_vector(matrix);
+
+    // cout << my_sol.setZeroes(matrix);
     
     // string res = my_sol.test();
     // cout << res;

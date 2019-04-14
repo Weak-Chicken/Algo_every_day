@@ -5,15 +5,22 @@ using namespace std;
 class Solution 
 {
 public:
-    int divide(long long dividend, long long divisor) 
+    void setZeroes(vector<vector<int>>& matrix) 
     {
-        cout << dividend << " | " << divisor;
-        long long long_divisor = divisor; long long long_dividend = dividend; int count = 0;
+        if (matrix.empty() || matrix[0].empty()) return;
+        int m = matrix.size(), n = matrix[0].size();
+        bool rows[m]; bool cols[n];
+        memset(rows, false, m); memset(cols, false, n);
+        for (int i = 0; i < m; i++)
+            for (int j = 0; j < n; j++)
+                if (matrix[i][j] == 0) {rows[i] = true; cols[j] = true;}
         
-        bool neg = ((long_dividend < 0 && long_divisor > 0) || (long_dividend > 0 && long_divisor < 0)) ? true : false;
+        cout << "rows: ";
+        for (int i = 0; i < matrix.size(); i++)
+            cout << rows[i] << " ";
         
-        long_divisor = abs(long_divisor); long_dividend = abs(long_dividend);
-        while (long_dividend > long_divisor) {long_dividend -= long_divisor; count++;}
-        return (neg) ? -count : count;
+        for (int i = 0; i < m; i++)
+            for (int j = 0; j < n; j++)
+                if (rows[i] || cols[j]) matrix[i][j] = 0;
     }
 };
